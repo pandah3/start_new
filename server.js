@@ -4,6 +4,8 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
 var db
@@ -30,4 +32,8 @@ app.post('/quotes', (req, res) => {
     console.log('saved to database');
   res.redirect('/')
   })
+})
+
+app.put('/quotes', (req, res) => {
+  
 })
